@@ -6,5 +6,17 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
+        server: {
+            fs: {
+                // Permitir servir archivos desde el directorio del proyecto
+                strict: false,
+            },
+        },
+    },
+    // Configuración para servir archivos estáticos desde la carpeta public
+    publicDir: './public',
+    // Configuración para incluir archivos estáticos en la compilación
+    build: {
+        assets: 'assets',
     },
 });
